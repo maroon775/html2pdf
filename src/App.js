@@ -9,13 +9,12 @@ import 'semantic-ui-css/semantic.min.css';
 import './assets/style.css';
 
 import config from '@/config';
-import Layout from "@/containers/Layout";
-import Navbar from "@/components/Navbar";
-import {Segment, Grid} from "semantic-ui-react";
+import Layout from '@/containers/Layout';
+import Navbar from '@/components/Navbar';
+import {Segment, Grid} from 'semantic-ui-react';
 
 export default class App extends Component {
-    render()
-    {
+    render() {
         return <Router>
             <Layout>
                 <Grid centered padded>
@@ -36,7 +35,7 @@ export default class App extends Component {
                             </Segment>
                         </Grid.Column>
                     </Grid.Row>
-                    
+                
                 </Grid>
             </Layout>
         </Router>;

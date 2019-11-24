@@ -3,7 +3,7 @@ import Form from '../../components/Form';
 import actions from '../../actions';
 
 const mapDispatchToProps = dispatch => ({
-    init: ()=> dispatch(actions.init()),
+    init: () => dispatch(actions.init()),
     onChangePassword: password => dispatch(actions.setPassword(password)),
     onChangeUsername: username => dispatch(actions.setUsername(username)),
     onLogin: () => dispatch(actions.onLogin())

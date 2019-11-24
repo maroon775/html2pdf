@@ -8,11 +8,10 @@ import {
     Icon,
     Segment,
     Message
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
 
 export default class Form extends Component {
-    componentDidMount()
-    {
+    componentDidMount() {
         this.props.init();
     }
     
@@ -21,7 +20,7 @@ export default class Form extends Component {
     };
     onSubmit = event => {
         event.preventDefault();
-        this.props.onLogin()
+        this.props.onLogin();
     };
     
     onChangeUsername = event => {
@@ -31,16 +30,14 @@ export default class Form extends Component {
         this.props.onChangePassword(event.target.value);
     };
     
-    renderError()
-    {
+    renderError() {
         return this.props.errorMessage && <Message
             error
             content={this.props.errorMessage}
         />;
     }
     
-    render()
-    {
+    render() {
         return (<div><Header as='h3' inverted color='black' textAlign='center'>
                 <Icon circular color='black' name='window restore outline'/> Sign in | Shadowbox tools
             </Header>
@@ -50,7 +47,7 @@ export default class Form extends Component {
                         size={this.props.size}
                         onSubmit={this.onSubmit}
                         
-                        {...(this.props.errorMessage ? {error:true} : {})}
+                        {...(this.props.errorMessage ? {error: true} : {})}
                     >
                         
                         
@@ -87,15 +84,15 @@ export default class Form extends Component {
 }
 
 Form.propTypes = {
-    isLoading   :propTypes.bool,
-    username    :propTypes.string,
-    password    :propTypes.string,
-    errorMessage:propTypes.string,
+    isLoading: propTypes.bool,
+    username: propTypes.string,
+    password: propTypes.string,
+    errorMessage: propTypes.string,
     
-    init            :propTypes.func.isRequired,
-    onLogin         :propTypes.func.isRequired,
-    onChangeUsername:propTypes.func.isRequired,
-    onChangePassword:propTypes.func.isRequired,
+    init: propTypes.func.isRequired,
+    onLogin: propTypes.func.isRequired,
+    onChangeUsername: propTypes.func.isRequired,
+    onChangePassword: propTypes.func.isRequired,
     
-    size:propTypes.oneOf(['mini', 'tiny', 'small', 'large', 'big', 'huge', 'massive'])
+    size: propTypes.oneOf(['mini', 'tiny', 'small', 'large', 'big', 'huge', 'massive'])
 };

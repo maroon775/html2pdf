@@ -2,11 +2,10 @@ export default class ShadowboxDevUsers {
     static api = null;
     static apiHost = 'https://auth.shadowbox.solutions/api';
     
-    constructor(requestMiddleware)
-    {
+    constructor(requestMiddleware) {
         this.api = requestMiddleware({
-            baseURL     :ShadowboxDevUsers.apiHost,
-            responseType:'json'
+            baseURL: ShadowboxDevUsers.apiHost,
+            responseType: 'json'
         });
     }
     
@@ -15,17 +14,16 @@ export default class ShadowboxDevUsers {
      * @param password String
      * @return Promise
      * */
-    postSecurityLogin(username, password)
-    {
+    postSecurityLogin(username, password) {
         return this.api.post(`/security/login`, {
-            errorCode   :0,
-            errorMessage:"",
-            commandName :"security_login",
-            object      :{
+            errorCode: 0,
+            errorMessage: '',
+            commandName: 'security_login',
+            object: {
                 username,
                 password
             },
-            hexData     :""
-        })
+            hexData: ''
+        });
     }
 }

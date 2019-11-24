@@ -1,18 +1,18 @@
-import Html2Pdf from "@/module/Hmtl2Pdf";
-import Dashboard from "@/module/Dashboard";
+import Html2Pdf from '@/module/Hmtl2Pdf';
+import Dashboard from '@/module/Dashboard';
 
 export default {
-    routes:[
+    routes: [
         {
-            path     :"/",
-            exact    :true,
-            label    :"Home",
-            component:Dashboard
+            path: '/',
+            exact: true,
+            label: 'Home',
+            component: Dashboard
         },
         {
-            path     :"/pdf2html",
-            label    :"PDF to HTML",
-            component:Html2Pdf
+            path: '/pdf2html',
+            label: 'PDF to HTML',
+            component: Html2Pdf
         },
     ]
-}
+};
