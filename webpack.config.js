@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require('fs');
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -6,19 +7,26 @@ module.exports = {
 	entry       :"./src/index.js",
 	output      :{
 		path    :path.join(__dirname, "/dist"),
-		filename:"bundle.js"
+		filename:"bundle.js",
+		publicPath: '/'
 	},
 	devServer   :{
-		historyApiFallback:true,
-		host              :'localhost',
-		allowedHosts      :['shadowbox-utils.local'],
-		contentBase       :path.join(__dirname, "dist"),
-		compress          :true,
-		port              :8001,
-		watchContentBase  :true,
-		progress          :true,
-		stats             :'minimal',
-		inline            :true,
+		historyApiFallback: true,
+		
+		https: {
+			key: fs.readFileSync(path.resolve('./shadowbox-utils.local+4-key.pem')),
+			cert: fs.readFileSync(path.resolve('./shadowbox-utils.local+4.pem')),
+			ca: fs.readFileSync('/home/maroon775/.local/share/mkcert/rootCA.pem'),
+		},
+		host: 'localhost',
+		allowedHosts: ['shadowbox-utils.local', 'localhost'],
+		contentBase: path.join(__dirname, 'dist'),
+		compress: true,
+		port: 8001,
+		watchContentBase: true,
+		progress: true,
+		stats: 'minimal',
+		inline: true,
 	},
 	watchOptions:{
 		aggregateTimeout:300,

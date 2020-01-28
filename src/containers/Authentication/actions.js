@@ -2,7 +2,7 @@ import {createActions} from 'redux-actions';
 import ShadowboxAuth from '@/api/ShadowboxAuth';
 import RequestMiddleware from '@/middlewares/request';
 
-const MODULE_PATH = '/app/containers/Authentication/';
+const MODULE_PATH = '/app/containers/Authentication';
 const authApi = new ShadowboxAuth(RequestMiddleware);
 
 export const initState = {

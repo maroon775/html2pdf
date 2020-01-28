@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
-import {Menu, Icon} from 'semantic-ui-react';
+import {Menu} from 'semantic-ui-react';
 import {NavLink} from 'react-router-dom';
 import LogoutMenuLink from '@/containers/Authentication/containers/LogoutMenuLink';
 

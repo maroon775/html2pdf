@@ -1,5 +1,6 @@
-import Html2Pdf from '@/module/Hmtl2Pdf';
-import Dashboard from '@/module/Dashboard';
+import Html2Pdf from '@/modules/Hmtl2Pdf';
+import EMR from '@/modules/EMR';
+import Dashboard from '@/modules/Dashboard';
 
 export default {
     routes: [
@@ -13,6 +14,11 @@ export default {
             path: '/pdf2html',
             label: 'PDF to HTML',
             component: Html2Pdf
+        },
+        {
+            path: '/emr',
+            label: 'Shadowbox EMR',
+            component: EMR
         },
     ]
 };
