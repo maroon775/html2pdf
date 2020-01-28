@@ -22,7 +22,7 @@ module.exports = {
 		allowedHosts: ['shadowbox-utils.local', 'localhost'],
 		contentBase: path.join(__dirname, 'dist'),
 		compress: true,
-		port: 8001,
+		port: 8002,
 		watchContentBase: true,
 		progress: true,
 		stats: 'minimal',

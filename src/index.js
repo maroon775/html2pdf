@@ -6,7 +6,7 @@ import store from './store';
 
 ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('App'));
 
-
+window.shbPodInit = ()=>{};
 window.shbPodButtonActionReaction = function(_action) {
 	console.log(_action);
 	try {
@@ -14,7 +14,7 @@ window.shbPodButtonActionReaction = function(_action) {
 			showSHBLoader('Collecting data...');
    
 			const {patientInfo} = store.getState().emr;
-			
+			console.log({patientInfo});
             createSimpleJSActionDataAndSendToApp('emr_patient_data', {
                 'hl7': patientInfo.contentData.arr,
                 'raw': patientInfo.contentData.encode(),
