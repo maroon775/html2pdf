@@ -13,7 +13,7 @@ export default function PatientList(props) {
     }, [props.loadPatientsList]);
     
     return (
-        <Menu vertical fluid size="small" color='black' inverted>
+        <Menu tabula vertical fluid size="small" color='black' inverted>
             {/*<Menu.Item>*/}
             {/*    <Input icon="search" placeholder="Search patient..." />*/}
             {/*</Menu.Item>*/}

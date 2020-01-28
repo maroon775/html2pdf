@@ -1,13 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const request = require('request');
-const webpackConfig = require('../webpack.config');
 const app = express();
 
-const webpackFrontAppPort = webpackConfig.devServer.port ? ':' + webpackConfig.devServer.port : '';
 const allowedOrigins = [
-    `http://${webpackConfig.devServer.host}${webpackFrontAppPort}`,
-    ...(webpackConfig.devServer.allowedHosts.map(host => `http://${host}${webpackFrontAppPort}`) || [])
+    'https://shadowbox-utils.local:8002',
+    'https://localhost:8002',
+    //without https
+    'http://shadowbox-utils.local:8002',
+    'http://localhost:8002',
 ];
 
 app.use(cors({
@@ -67,6 +68,40 @@ app.get('/hl7-get-list',
         },
         responseDivider.end
     );
+
+
+app.post('/api/security/login',
+    responseDivider.start,
+    (req, res, next) => {
+        console.log(new Date().getMilliseconds(),{
+            url: req.url,
+            params:req.params,
+            body: req.body,
+        });
+        
+        let jsonData = {};
+        if(req.body && req.body.object && req.body.commandName === 'security_login') {
+            jsonData = req.body;
+        }
+        else {
+            return res.status(500).send({message: 'Bad request!'});
+        }
+        
+        request({
+            url: 'https://auth.shadowbox.solutions/api/security/login',
+            json: jsonData,
+            method: 'POST'
+        }, (err, response, body) => {
+            if(err) {
+                return res.status(500).send({message: err});
+            }
+            
+            res.send(body);
+            next();
+        });
+    },
+    responseDivider.end
+);
 
 app.listen(3333, function() {
     console.log('Example app listening on port 3333!');

@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require('fs');
-
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -14,9 +13,9 @@ module.exports = {
 		historyApiFallback: true,
 		
 		https: {
-			key: fs.readFileSync(path.resolve('./shadowbox-utils.local+4-key.pem')),
-			cert: fs.readFileSync(path.resolve('./shadowbox-utils.local+4.pem')),
-			ca: fs.readFileSync('/home/maroon775/.local/share/mkcert/rootCA.pem'),
+			key: fs.readFileSync(path.resolve('./','./shadowbox-utils.local+4-key.pem')),
+			cert: fs.readFileSync(path.resolve('./','./shadowbox-utils.local+4.pem')),
+//			ca: fs.readFileSync('/home/maroon775/.local/share/mkcert/rootCA.pem'),
 		},
 		host: 'localhost',
 		allowedHosts: ['shadowbox-utils.local', 'localhost'],
@@ -84,7 +83,7 @@ module.exports = {
 	],
 	resolve     :{
 		alias:{
-			'@':path.resolve('./src')
+			'@': path.resolve('./src')
 		}
 	},
 };

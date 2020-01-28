@@ -14,19 +14,23 @@ window.shbPodButtonActionReaction = function(_action) {
 			showSHBLoader('Collecting data...');
    
 			const {patientInfo} = store.getState().emr;
-			console.log({patientInfo});
-            createSimpleJSActionDataAndSendToApp('emr_patient_data', {
-                'hl7': patientInfo.contentData.arr,
-                'raw': patientInfo.contentData.encode(),
-                'emrName': 'ShadowBox EMR',
+			const hl7Data = new HL7(patientInfo.contentData.hl7);
+			
+			createSimpleJSActionDataAndSendToApp("emr_patient_data", {
+                'hl7': hl7Data.arr,
+                'raw': hl7Data.encode(),
+                'emrName': 'Shadowbox EMR',
                 'emrLogoUrl': '',
-                'patientID': patientInfo.patientId || patientInfo.id,
+                'patientID': String(patientInfo.patientId || patientInfo.id),
                 'process_name': 'Submitting to Lab',
-                'document': undefined
+                'document': undefined,
+                'tempData': {}
             });
             setTimeout(hideSHBLoader, 3000);
-		}
+            console.log({hl7Data, patientInfo});
+        }
 	} catch (err) {
 		Sentry.captureException(err);
-	}
+        console.error(err);
+    }
 };

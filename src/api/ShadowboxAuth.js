@@ -1,10 +1,11 @@
-export default class ShadowboxDevUsers {
+export default class ShadowboxAuth{
     static api = null;
-    static apiHost = 'https://auth.shadowbox.solutions/api';
+//    static apiHost = 'https://auth.shadowbox.solutions/api';
+    static apiHost = 'http://localhost:3333/api';
     
     constructor(requestMiddleware) {
         this.api = requestMiddleware({
-            baseURL: ShadowboxDevUsers.apiHost,
+            baseURL: ShadowboxAuth.apiHost,
             responseType: 'json'
         });
     }
