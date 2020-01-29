@@ -11,7 +11,7 @@ export default class Html2Pdf extends Component {
         return (
             <div>
                 <Segment>
-                    <Grid columns={2} stackable textAlign='center'>
+                    <Grid columns={2} textAlign='center'>
                         <Divider vertical>Or</Divider>
                         
                         <Grid.Row verticalAlign='middle'>

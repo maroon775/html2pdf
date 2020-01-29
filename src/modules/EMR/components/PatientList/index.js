@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import propTypes from 'prop-types';
 import {
     Menu,
@@ -12,10 +12,16 @@ export default function PatientList(props) {
         props.loadPatientsList();
     }, [props.loadPatientsList]);
     
+//    const [setPatients, patients] = useState(props.items);
+
+//    function searchItems(value) {
+//        setPatients(props.items.filter(item => `${item.name} ${item.lastname}`.includes(value)));
+//    }
+    
     return (
-        <Menu tabula vertical fluid size="small" color='black' inverted>
+        <Menu tabular vertical fluid size="small">
             {/*<Menu.Item>*/}
-            {/*    <Input icon="search" placeholder="Search patient..." />*/}
+            {/*    <Input icon="search" onChange={(event, {value})=>searchItems(value)} placeholder="Search patient..." />*/}
             {/*</Menu.Item>*/}
             {props.items.map(item => {
                 const url = `/emr/patient/${item.id}`;

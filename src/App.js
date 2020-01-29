@@ -17,9 +17,9 @@ export default class App extends Component {
     render() {
         return <Router>
             <Layout>
-                <Grid centered padded>
+                <Grid container centered>
                     <Grid.Row>
-                        <Grid.Column width={14}>
+                        <Grid.Column>
                             <Navbar items={config.routes}/>
                             <Segment attached='bottom'>
                                 <Switch>
@@ -35,7 +35,6 @@ export default class App extends Component {
                             </Segment>
                         </Grid.Column>
                     </Grid.Row>
-                
                 </Grid>
             </Layout>
         </Router>;

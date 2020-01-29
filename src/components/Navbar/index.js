@@ -19,7 +19,7 @@ export default class Navbar extends Component {
     
     render() {
         return (
-            <Menu pointing inverted size='tiny' attached='top' stackable>
+            <Menu pointing inverted size='tiny' attached='top'>
                 {this.renderItems()}
                 <LogoutMenuLink/>
             </Menu>

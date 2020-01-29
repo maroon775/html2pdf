@@ -10,7 +10,7 @@ import PatientInfo from './containers/PatientInfo';
 export default class EMR extends Component {
     render() {
         return (
-            <Grid columns={2} >
+            <Grid>
                 <Grid.Row verticalAlign="top">
                     <Grid.Column width={6}>
                         <Header>PATIENT LIST</Header>
