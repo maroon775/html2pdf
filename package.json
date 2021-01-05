@@ -21,7 +21,7 @@
   "homepage": "https://github.com/maroon775/html2pdf#readme",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "deep-parse-json": "^1.0.1",
     "less": "^3.10.3",
     "normalize.css": "^8.0.1",
